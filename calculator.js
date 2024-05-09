@@ -2,6 +2,7 @@ const numbers = document.querySelectorAll(".numberpad");
 const operators = document.querySelectorAll(".operators");
 const display = document.querySelector("#display");
 const clear = document.querySelector("#clear");
+const equals = document.querySelector("#equals");
 
 let currentNumber = "";
 let previousNumber = "";
@@ -25,14 +26,15 @@ const divide = function (a,b) {
 
 function operate (a,b) {
     if (operator === "add") {
-        return add(a,b);
+        currentNumber = add(a,b);
     } else if (operator === "subtract") {
-        return subtract(a,b);
+        currentNumber = subtract(a,b);
     } else if (operator === "multiply") {
-        return multiply(a,b);
+        currentNumber = multiply(a,b);
     } else if (operator === "divide") {
-        return divide(a,b);
+        currentNumber = divide(a,b);
     }
+    display.textContent = currentNumber;
 }
 
 function getNumber(e) {
@@ -60,5 +62,8 @@ numbers.forEach(button => {
 operators.forEach(button => {
     button.addEventListener("click", getOperator);
 });
+
+equals.addEventListener("click", function () {
+    operate(previousNumber, currentNumber)});
 
 clear.addEventListener("click", clearDisplay);

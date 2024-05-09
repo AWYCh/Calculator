@@ -15,7 +15,7 @@
 }
 
 .display-window {
-    background-color: #00d8e77c;
+    background-color: #07eafac4;
     height: 40px;
     width: 180px;
     justify-content: right;
@@ -37,12 +37,13 @@
     border-radius: 4px;
 }
 
-.left {
+.left,
+.right {
     flex-direction: column;
 }
 
 #clear {
-    background-color: #aa0000;
+    background-color: #c20000;
     color: #eeeeee;
     width: 100px;
 }
