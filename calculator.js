@@ -3,19 +3,9 @@ const operators = document.querySelectorAll(".operators");
 const display = document.querySelector("#display");
 const clear = document.querySelector("#clear");
 
-display.textContent = 0;
-
-const firstNumber = function getFirstNumber() {
-
-};
-
-const secondNumber = function getSecondNumber() {
-
-};
-
-const operator = function getOperator() {
-
-};
+let currentNumber = "";
+let previousNumber = "";
+let operator = "";
 
 const add = function(a,b) {
     return a + b;
@@ -33,16 +23,42 @@ const divide = function (a,b) {
     return a/b;
 };
 
-function getNumber(e) {
-    display.textContent = e.target.id;
+function operate (a,b) {
+    if (operator === "add") {
+        return add(a,b);
+    } else if (operator === "subtract") {
+        return subtract(a,b);
+    } else if (operator === "multiply") {
+        return multiply(a,b);
+    } else if (operator === "divide") {
+        return divide(a,b);
+    }
 }
 
+function getNumber(e) {
+    currentNumber += e.target.textContent;
+    display.textContent = currentNumber;
+}
+
+function getOperator(e) {
+    operator = e.target.id;
+    previousNumber = currentNumber;
+    currentNumber = "";
+};
+
 function clearDisplay() {
-    display.textContent = 0;
+    currentNumber = "";
+    previousNumber = "";
+    operator = "";
+    display.textContent = "";
 };
 
 numbers.forEach(button => {
     button.addEventListener("click", getNumber);
+});
+
+operators.forEach(button => {
+    button.addEventListener("click", getOperator);
 });
 
 clear.addEventListener("click", clearDisplay);
