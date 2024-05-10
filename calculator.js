@@ -51,6 +51,9 @@ function getNumber(e) {
 }
 
 function getOperator(e) {
+    if (currentNumber !== "" && previousNumber !== "" && operator !== "") {
+        operate(previousNumber, currentNumber)
+    };
     operator = e.target.id;
     previousNumber = currentNumber;
     currentNumber = "";
