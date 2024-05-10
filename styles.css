@@ -16,12 +16,22 @@
 
 .display-window {
     background-color: #07eafac4;
-    height: 40px;
+    height: 50px;
     width: 180px;
-    justify-content: right;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+#stored,
+#display {
+    justify-content: right;
+}
+
+#stored {
+    font-style: italic;
+    font-size: 10px;
 }
 
 .buttons {

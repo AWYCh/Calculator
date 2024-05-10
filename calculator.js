@@ -1,6 +1,7 @@
 const numbers = document.querySelectorAll(".numberpad");
 const operators = document.querySelectorAll(".operators");
 const display = document.querySelector("#display");
+const stored = document.querySelector("#stored");
 const clear = document.querySelector("#clear");
 const equals = document.querySelector("#equals");
 
@@ -25,6 +26,9 @@ const divide = function (a,b) {
 };
 
 function operate (a,b) {
+    a = Number(a);
+    b = Number(b);
+
     if (operator === "add") {
         currentNumber = add(a,b);
     } else if (operator === "subtract") {
@@ -32,9 +36,13 @@ function operate (a,b) {
     } else if (operator === "multiply") {
         currentNumber = multiply(a,b);
     } else if (operator === "divide") {
-        currentNumber = divide(a,b);
-    }
+        if (b === 0) {
+            currentNumber = "MissingNo";
+        } else {
+            currentNumber = divide(a,b);
+    }}
     display.textContent = currentNumber;
+    stored.textContent += " " + b + " " + "=";
 }
 
 function getNumber(e) {
@@ -46,6 +54,7 @@ function getOperator(e) {
     operator = e.target.id;
     previousNumber = currentNumber;
     currentNumber = "";
+    stored.textContent = previousNumber + " " + e.target.textContent;
 };
 
 function clearDisplay() {
@@ -53,6 +62,7 @@ function clearDisplay() {
     previousNumber = "";
     operator = "";
     display.textContent = "";
+    stored.textContent = "";
 };
 
 numbers.forEach(button => {
@@ -64,6 +74,7 @@ operators.forEach(button => {
 });
 
 equals.addEventListener("click", function () {
-    operate(previousNumber, currentNumber)});
+    if (currentNumber !== "" && previousNumber !== "" && operator !== "") {
+    operate(previousNumber, currentNumber)}});
 
 clear.addEventListener("click", clearDisplay);
