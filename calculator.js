@@ -9,6 +9,10 @@ let currentNumber = "";
 let previousNumber = "";
 let operator = "";
 
+function roundNumber(num) {
+    return Math.round(num*10000000)/10000000;
+};
+
 const add = function(a,b) {
     return a + b;
 };
@@ -41,14 +45,15 @@ function operate (a,b) {
         } else {
             currentNumber = divide(a,b);
     }}
-    display.textContent = currentNumber;
+    display.textContent = roundNumber(currentNumber);
     stored.textContent += " " + b + " " + "=";
-}
+};
 
 function getNumber(e) {
+    if (currentNumber.length <= 15) {
     currentNumber += e.target.textContent;
     display.textContent = currentNumber;
-}
+    }};
 
 function getOperator(e) {
     if (currentNumber !== "" && previousNumber !== "" && operator !== "") {
