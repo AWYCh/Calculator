@@ -42,9 +42,12 @@ function operate (a,b) {
     } else if (operator === "divide") {
         if (b === 0) {
             currentNumber = "MissingNo";
+            display.textContent = currentNumber;
+            return;
         } else {
             currentNumber = divide(a,b);
-    }}
+    }};
+    operator = "";
     display.textContent = roundNumber(currentNumber);
     stored.textContent += " " + b + " " + "=";
 };
@@ -56,7 +59,7 @@ function getNumber(e) {
     }};
 
 function getOperator(e) {
-    if (currentNumber !== "" && previousNumber !== "" && operator !== "") {
+    if (currentNumber !== "" && operator !== "") {
         operate(previousNumber, currentNumber)
     };
     operator = e.target.id;
