@@ -53,6 +53,9 @@ function operate (a,b) {
 };
 
 function getNumber(e) {
+    if (operator == "" && currentNumber !== "" && previousNumber !== "") {
+        clearDisplay()
+    };
     if (currentNumber.length <= 15) {
     currentNumber += e.target.textContent;
     display.textContent = currentNumber;
