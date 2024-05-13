@@ -59,7 +59,9 @@ function getNumber(e) {
     }};
 
 function getOperator(e) {
-    if (currentNumber !== "" && operator !== "") {
+    if (currentNumber == "") {
+        currentNumber = 0
+    } else if (operator !== "") {
         operate(previousNumber, currentNumber)
     };
     operator = e.target.id;

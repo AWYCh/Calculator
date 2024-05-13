@@ -6,9 +6,6 @@
 }
 
 .container {
-    
-    
-    
     min-height: 90vh;
     height: 100vh;
     min-width: 90vw;
@@ -17,7 +14,7 @@
 
 .calculator {
     flex-direction: column;
-    background-color: #999999;
+    background-color: #09003b;
     margin: auto;
     padding: 15px;
     gap: 7px;
@@ -27,7 +24,7 @@
 }
 
 .display-window {
-    background-color: #07eafac4;
+    background-color: #85f7ffc4;
     height: 50px;
     width: 180px;
     flex-direction: column;
@@ -44,6 +41,7 @@
 #stored {
     font-style: italic;
     font-size: 10px;
+    color: #424242;
 }
 
 .buttons {
@@ -76,6 +74,10 @@
 
 .operators {
     flex-direction: column;
+}
+
+.operators button {
+    background-color: #ffac4e;
 }
 
 #equals {
