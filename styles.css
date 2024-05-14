@@ -54,7 +54,11 @@
     justify-content: center;
     align-items: center;
     border: 0.5px solid #000000;
-    border-radius: 4px;
+    border-radius: 5px;
+}
+
+.buttons button:hover {
+    transform: scale(1.05);
 }
 
 .left {
@@ -76,11 +80,7 @@
     flex-wrap: wrap;
 }
 
-.operators {
-    flex-direction: column;
-}
-
-.operators button {
+.operator {
     background-color: #ffac4e;
 }
 
