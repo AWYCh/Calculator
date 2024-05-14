@@ -1,16 +1,17 @@
-const numbers = document.querySelectorAll(".numberpad");
+const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operators");
 const display = document.querySelector("#display");
 const stored = document.querySelector("#stored");
 const clear = document.querySelector("#clear");
 const equals = document.querySelector("#equals");
+const decimal = document.querySelector("#decimal");
 
 let currentNumber = "";
 let previousNumber = "";
 let operator = "";
 
 function roundNumber(num) {
-    return Math.round(num*10000000)/10000000;
+    return Math.round(num*1000000000)/1000000000;
 };
 
 const add = function(a,b) {
@@ -73,6 +74,15 @@ function getOperator(e) {
     stored.textContent = previousNumber + " " + e.target.textContent;
 };
 
+function getDecimal () {
+    if (!currentNumber.includes(".")) {
+        if (currentNumber == "") {
+            currentNumber = 0
+        };
+        currentNumber += ".";
+        display.textContent = currentNumber;
+    }};
+
 function clearDisplay() {
     currentNumber = "";
     previousNumber = "";
@@ -88,6 +98,8 @@ numbers.forEach(button => {
 operators.forEach(button => {
     button.addEventListener("click", getOperator);
 });
+
+decimal.addEventListener("click", getDecimal);
 
 equals.addEventListener("click", function () {
     if (currentNumber !== "" && previousNumber !== "" && operator !== "") {

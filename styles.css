@@ -14,7 +14,7 @@
 
 .calculator {
     flex-direction: column;
-    background-color: #09003b;
+    background-color: #272727;
     margin: auto;
     padding: 15px;
     gap: 7px;
@@ -24,7 +24,7 @@
 }
 
 .display-window {
-    background-color: #85f7ffc4;
+    background-color: #bbfaffc4;
     height: 50px;
     width: 180px;
     flex-direction: column;
@@ -55,6 +55,10 @@
     align-items: center;
     border: 0.5px solid #000000;
     border-radius: 4px;
+}
+
+.left {
+    width: 150px;
 }
 
 .left,
