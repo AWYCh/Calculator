@@ -16,17 +16,16 @@
     flex-direction: column;
     background-color: #272727;
     margin: auto;
-    padding: 15px;
-    gap: 7px;
-    width: 200px;
+    padding: 20px;
+    gap: 20px;
     height: auto;
-    border-radius: 7px;
+    border-radius: 10px;
 }
 
 .display-window {
-    background-color: #bbfaffc4;
-    height: 50px;
-    width: 180px;
+    background-color: #dcfdffc4;
+    height: 75px;
+    width: auto;
     flex-direction: column;
     justify-content: space-evenly;
     padding-left: 10px;
@@ -38,9 +37,13 @@
     justify-content: right;
 }
 
+#display {
+    font-size: 30px;
+}
+
 #stored {
     font-style: italic;
-    font-size: 10px;
+    font-size: 15px;
     color: #424242;
 }
 
@@ -49,12 +52,13 @@
 }
 
 .buttons button {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
+    font-size: 20px;
     justify-content: center;
     align-items: center;
     border: 0.5px solid #000000;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .buttons button:hover {
@@ -62,7 +66,7 @@
 }
 
 .left {
-    width: 150px;
+    width: 231px;
 }
 
 .left,
@@ -73,7 +77,11 @@
 #clear {
     background-color: #c20000;
     color: #eeeeee;
-    width: 100px;
+    width: 153px;
+}
+
+#backspace {
+    background-color: #ffe600;
 }
 
 .numberpad {
@@ -87,4 +95,12 @@
 #equals {
     background-color: #1d46ff;
     color: #eeeeee;
+}
+
+.buttons,
+.left,
+.right,
+.top-left,
+.numberpad {
+    gap: 3px;
 }
